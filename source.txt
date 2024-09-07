@@ -1,0 +1,291 @@
+
+"Escape From Havelock Ave" by Becky Heaton
+
+Release along with the "Quixe" interpreter.
+[Release along with a solution.]
+Release along with website.
+Release along with source text.
+Use scoring.
+The maximum score is 9.
+The display banner rule is not listed in the startup rulebook.
+
+Include Basic Help Menu by Emily Short.
+Include Approaches by Emily Short.
+[Include Property Checking by Emily Short.]
+[Include Remembering by Aaron Reed.]
+Include Extended Grammar by Aaron Reed.
+[Include Smarter Parser by Aaron Reed.]
+Include Small Kindnesses by Aaron Reed.
+Include Epistemology by Eric Eve.
+
+
+Volume 1 - The Beginning
+	
+	When play begins: 
+		say "[italic type][line break][line break]You wake. The sun is streaming through the open window. You sit up and it hits your face. You rub your eyes. It's still early. [line break][line break]Very slowly, she returns to you. Jane, always Jane. Jane all the time. You feel sick. You get out of bed. [line break][line break][roman type]".
+	
+
+	The player is a woman called Becky. The player is in the Bedroom. The description of Becky is "If you looked in a mirror you would see someone who is trying her best, most of the time." The player carries pen. The description of the pen is "What can I say, it writes well."  
+	
+
+
+
+Volume 2 - Set up
+
+	Book 1 - Actions
+	
+		Writing is an action applying to one visible thing.
+		
+		Check writing:
+			unless the noun is the letter
+			begin;
+				say "[The noun] is fit for that. Try writing the letter.";
+			end if.
+			
+			
+			[The scorepause is in the Living Room. It is a container. It is scenery. It is closed and openable.]
+			
+			Rested is a thing. It has a number called worth. The worth of rested is usually 0.
+			
+			Understand the command "escape" as something new.
+			
+			Understand the command "leave" as something new. 
+			
+			Understand the command "sleep" as something new.
+			
+			
+
+			 
+Escaping is an action applying to nothing.
+			
+Check escaping:
+	if score is 0:
+		say "The letter Becky, you have to finish the letter.[line break]";
+	if score is 1:
+		say "You wish. Go back inside. Finish the letter.[line break]";
+		stop the action;
+	if score is 2:
+		say "[if worth of rested is 0]Seriously, you're exhausted. Go to bed.[end if][if worth of rested is 1]You've got something to do. Go do it.[end if]";
+		stop the action;
+	if score is 3:
+		say "You can't leave without finishing the letter. [line break]Don't you understand that by now?[line break]";
+		stop the action;
+	if score is 4:
+		say "Oh you think you've finished? Come on. Go back inside.[line break]";
+		stop the action;
+	if score is 5:
+		say "[if worth of rested is 1]You manage to take a few steps towards the door before nausea overcomes you.[end if][if worth of rested is 2]Close, but no cigar. Go back inside.[end if]";
+		stop the action;
+	if the score is 6:
+		say "Maybe [italic type]never[roman type] is a little harsh. I think that letter is almost done, don't you?";
+		stop the action;
+	if the score is 7:
+		say "[line break][italic type]Abruptly, you stand up. When you get to the door the keys are already in your hand and it’s open and your leaving, tearing down three flights of stairs and emerging onto the street like newborn.[line break][line break]The day is bright and dewy. You can feel everything. You could cry you are so happy.[roman type][line break][line break]It didn't happen like that. Winning was never an option. This isn't that type of game. Go back inside.[line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break][line break]";
+		now the score is 0;
+		now the worth of rested is 0;
+		now the description of the letter is "All you've written so far is [italic type][line break][line break]Jane,[roman type]";
+		now the player is in the bedroom;
+		say "[italic type]You wake. The sun is streaming through the open window. You sit up and it hits your face. You rub your eyes. It's still early. [line break][line break]Very slowly, she returns to you. Jane, always Jane. Jane all the time. You feel sick. You get out of bed. [line break][roman type]".
+
+		
+
+
+
+Instead of entering the bed:
+	if score is 2:
+		say "You've been having nightmares.[italic type][line break][line break]You're driving a car across a bridge that is splitting down the middle. You get out and start falling. When you hit the water you realise that you are dreaming. [line break][line break]You wake up in your parents living room. It is the middle of the night. Your mum is away. She's night kayaking. You walk into the backyard for some fresh air. You are standing there in the dirt, in the dark, when a man jumps over the fence like he is a rabbit. He moves around you in the dirt. A grey smudge, moving around you. You're terrified. You can only see his teeth. You need to wake up but you can't. It doesn't matter that you know you're dreaming. You are standing there and it is real.[line break][line break][roman type]You wake.[italic type] The sun is streaming through the open window. You sit up and it hits your face. You rub your eyes. It's still early. [line break][line break]Very slowly, she returns to you. Jane, always Jane. Jane all the time. You feel sick. You get out of bed.[roman type][line break]";
+		now worth of rested is 1;
+		stop the action;
+	if score is 5:
+		say "Your head is swimming. You close your eyes.[line break][line break][italic type]Someone is sitting on the foot of your bed. It’s dark but you can feel a weight on the end of the mattress. And you can see her. You have never been so scared and you never will be again. When you wake you are overcome by the impression that her hair is in your bed. That she has pulled out her hair and hidden it in your bed.[line break][line break][roman type]You wake.[italic type] The sun is streaming through the open window. You sit up and it hits your face. You rub your eyes. It's still early. You get out of bed.[roman type][line break]";
+		now worth of rested is 2;
+		stop the action;
+	otherwise:
+		now player is in the bed.
+			
+
+			
+Check writing:
+	if score is 0:
+		say "You write.[line break][line break][italic type]Jane,[line break][line break]I’m sorry this is only coming now. I’ve wanted to write you for a few days. A letter, like the one you sent me. But I didn’t have any paper, so today I bought some. And now I’m writing you a letter.[roman type][line break]";	
+		now score is 1;
+		now the description of the letter is "It reads:[line break][line break][italic type]Jane,[line break][line break]I’m sorry this is only coming now. I’ve wanted to write you for a few days. A letter, like the one you sent me. But I didn’t have any paper, so today I bought some. And now I’m writing you a letter.[roman type][line break]";	
+		[now scorepause is open;]
+		stop the action;		
+	if score is 1:
+		say "You write.[line break][line break][italic type]Jane,[line break][line break]I’m sorry this is only coming now. I’ve wanted to write you for a few days. I thought it should be a letter, like the one you wrote me (I don’t know about you, but I like things that I can hold). But I didn’t have any paper so yesterday I bought some. And now I’m writing you a letter.[line break][line break]There’s a part of me that just wants to yell how fucking sorry I am that this has happened and that it should never have happened and that it’s horrific and unfair.[line break][line break]But there’s another part of me that thinks saying all that is redundant and what I should really be telling you is that people are right when they say that grief never goes away, not really. But what they won’t tell you is that it’s much more complicated than	 that, and that eleven years on I wouldn’t let it go, even if I was able. I want to tell you to hold onto it, as long as it doesn’t paralyse you. If you can carry it with you, then maybe you’ll find in time, like I did, that the experience of it is further from anguish and much closer to something like love.[roman type][line break]";
+		now score is 2;
+		now the description of the letter is "It reads:[line break][line break][italic type]Jane,[line break][line break]I’m sorry this is only coming now. I’ve wanted to write you for a few days. I thought it should be a letter, like the one you wrote me (I don’t know about you, but I like things that I can hold). But I didn’t have any paper so yesterday I bought some. And now I’m writing you a letter.[line break][line break]There’s a part of me that just wants to yell how fucking sorry I am that this has happened and that it should never have happened and that it’s horrific and unfair.[line break][line break]But there’s another part of me that thinks saying all that is redundant and what I should really be telling you is that people are right when they say that griefnever goes away, not really. But what they won’t tell you is that it’s much more complicated then that, and that eleven years on I wouldn’t let it go, even if I was able. I want to tell you to hold onto it, as long as it doesn’t paralyse you. If you can carry it with you, then maybe you’ll find in time, like I did, that the experience of it is further from anguish and much closer to something like love.[roman type][line break]";
+		stop the action;
+	if score is 2:
+		if worth of rested is 0:
+			say "You can barely string a single thought together you're so tired.";
+			stop the action;
+		if worth of rested is 1:
+			say "You write.[line break][line break][italic type]Jane,[line break][line break]It’s hard for me to not make this about myself. I have a bizarre desire to tell you about him.[line break][line break]That’s what I felt in other people when he died. That they wanted a piece of me. Like they were drawn to the depth of my feeling and felt entitled to some of it. I felt, even then, that the grief was some precious stone. I guarded it so closely. To give it away would have just felt like another loss. I told no one how I felt.[line break][line break]Nora said you wanted books and I realised that I already had one. The title’s a little on the nose but it’s really good. A collection of letters, all better than this one. Thank god.[line break][line break]Can I make one suggestion? Keep some of his clothes, t-shirts and stuff. My biggest regret is that I didn’t ask for that. All I have is a black jumper from Kathmandu. It has a red lining and I wear it all the time. You’ve probably seen me in it.[roman type][line break]";
+			now score is 3;
+			now the description of the letter is "It reads:[line break][line break][italic type]Jane,[line break][line break]It’s hard for me to not make this about myself. I have a bizarre desire to tell you about him.[line break][line break]That’s what I felt in other people when he died. That they wanted a piece of me. Like they were drawn to the depth of my feeling and felt entitled to some of it. I felt, even then, that the grief was some precious stone. I guarded it so closely. To give it away would have just felt like another loss. I told no one how I felt.[line break][line break]Nora said you wanted books and I realised that I already had one. The title’s a little on the nose but it’s really good. A collection of letters, all better than this one. Thank god.[line break][line break]Can I make one suggestion? Keep some of his clothes, t-shirts and stuff. My biggest regret is that I didn’t ask for that. All I have is a black jumper from Kathmandu. It has a red lining and I wear it all the time. You’ve probably seen me in it.[roman type][line break]";
+		stop the action;
+	if score is 3:
+		say "You write.[line break][line break][italic type]Jane,[line break][line break]I’m sorry this is coming so late. It’s taken longer than I expected. I must have written this letter ten times by now. But I’ll finish it this time.[line break][line break]There’s a part of me that just wants to tell you how fucking sorry I am that this has happened and that it should never have happened and that it’s unfair and horrific.[line break][line break]But there’s another part of me that thinks that saying all that is redundant and what I should really tell you is that people are right when they say that grief never goes away, not really. What they won’t tell you is how much more complicated it is than that, and that eleven years on, I wouldn’t let it go even if I was able. I want to tell you to hold onto it, as long as it doesn’t paralyse you. If you can carry it with you, then maybe you’ll find in time, like I did, that the experience of it is further from anguish and much closer to something like love.[line break][line break]When I think of my dad now, I imagine standing in front of him. I imagine everything going quiet, like the air has been sucked out of the room. And we’re standing there, the only two people in the world. And I feel him right in front of me, like he’s really there. And I hope desperately for it to be real, but settle for the fact that I remember him, and knew him, and he knew me.[line break][line break]Nora said you wanted books and I realised that I already had one. The title is a little on the nose, but it’s really good. It’s a collection of letters. They weren’t written to be published, which I think is what makes them so touching. Plus, it has the added bonus of taking the pressure of this letter. Which is good, because I’m beginning to think it’s a load of shit.[line break][line break]Nora also said you like practical advice. I’m sure you already have, but keep some of his clothes, shirts and stuff. My biggest regret is not asking for that. All I have is a black Kathmandu jumper. It has a red lining and I wear it all the time. You’ve probably seen me in it.[roman type][line break]";
+		now score is 4;
+		now the description of the letter is "It reads:[line break][line break][italic type]Jane,[line break][line break]I’m sorry this is coming so late. It’s taken longer than I expected. I must have written this letter ten times by now. But I’ll finish it this time.[line break][line break]There’s a part of me that just wants to tell you how fucking sorry I am that this has happened and that it should never have happened and that it’s unfair and horrific.[line break]But there’s another part of me that thinks that saying all that is redundant and what I should really tell you is that people are right when they say that grief never goes away, not really. But what they won’t tell you is how it’s much more complicated then that, and that eleven years on, I wouldn’t let it go even if I was able. I want to tell you to hold onto it, as long as it doesn’t paralyse you. If you can carry it with you, then maybe you’ll find in time, like I did, that the experience of it is further from anguish and much closer to something like love.[line break][line break]When I think of my dad now, I imagine standing in front of him. I imagine everything going quiet, like the air has been sucked out of the room. And we’re standing there, the only two people in the world. And I feel him right in front of me, like he’s really there. And I hope desperately for it to be real, but settle for the fact that I remember him, and knew him, and he knew me.[line break][line break]Nora said you wanted books and I realised that I already had one. The title is a little on the nose, but it’s really good. It’s a collection of letters. They weren’t written to be published, which I think is what makes them so touching. Plus, it has the added bonus of taking the pressure of this letter. Which is good, because I’m beginning to think it’s a load of shit.[line break][line break]Nora also said you like practical advice. I’m sure you already have, but keep some of his clothes, shirts and stuff. My biggest regret is not asking for that. All I have is a black Kathmandu jumper. It has a red lining and I wear it all the time. You’ve probably seen me in it.[roman type][line break]";
+		stop the action;
+	if score is 4:
+		say "You write.[line break][line break][italic type]Jane,[line break][line break]I’m sorry this is coming so late, it was more difficult than I expected – I must have written this letter 10 times already. But I’ll finish this one.[line break][line break]I’m writing you a letter because you wrote me one. You couldn’t have known, but at that moment I really needed something like that. A few things had happened one after the other, and I felt like I was getting snowed under. And then you said ‘Sometimes bad things happen to good people’. It’s such a simple idea, but I needed to hear it. It isn’t always enough, but I hold onto it anyway.[roman type][line break]";
+		now score is 5;
+		now the description of the letter is "It reads:[line break][line break][italic type]Jane,[line break][line break]I’m sorry this is coming so late, it was more difficult than I expected – I must have written this letter 10 times already. But I’ll finish this one.[line break][line break]I’m writing you a letter because you wrote me one. You couldn’t have known, but at that moment I really needed something like that. A few things had happened one after the other, and I felt like I was getting snowed under. And then you said ‘Sometimes bad things happen to good people’. It’s such a simple idea, but I needed to hear it. It isn’t always enough, but I hold onto it anyway.[roman type][line break]";
+		stop the action;
+	if score is 5:
+		if worth of rested is 1:
+			say "You can barely string a single thought together you're so tired.";
+			stop the action;
+		if worth of rested is 2:
+			say "You write.[line break][line break][italic type]Jane,[line break][line break]I’m so sorry this is coming so late. I got it into my head that I was going to write you a letter. It’s hard. I must have written this 20 times by now. But I’ll finish it this time.[line break][line break]I’m writing you a letter because you wrote me one. You couldn’t have known it, but at that moment I really needed something like that. A few things had happened, one after the other and I was exhausted and confused and fumbling for an explanation that I knew I wasn’t going to find but wanting it anyway until you said ‘Sometimes bad things happen to good people’. Which is so simple, but I needed to hear it.[line break][line break]There’s a part of me that just wants to tell you how fucking sorry I am that this has happened and that it should never have happened and that it’s unfair and terrible.[line break][line break]But then I think,[roman type][line break]";
+			now score is 6;
+			now the description of the letter is "It reads:[line break][line break][italic type]Jane,[line break][line break]I’m so sorry this is coming so late. I got it into my head that I was going to write you a letter. It’s hard. I must have written this 20 times by now. But I’ll finish it this time.[line break][line break]I’m writing you a letter because you wrote me one. You couldn’t have known it, but at that moment I really needed something like that. A few things had happened, one after the other and I was exhausted and confused and fumbling for an explanation that I knew I wasn’t going to find but wanting it anyway until you said ‘Sometimes bad things happen to good people’. Which is so simple, but I needed to hear it.[line break][line break]There’s a part of me that just wants to tell you how fucking sorry I am that this has happened and that it should never have happened and that it’s unfair and terrible.[line break][line break]But then I think,[roman type][line break]";
+		stop the action;
+	if score is 6:
+		say "You write.[line break][line break][italic type]Jane,[line break][line break]I’m so sorry this is coming so late. I got it into my head that I was going to write you a letter, began writing, and then re-writing and starting again and then going back. It was much harder than I expected. I would begin writing to you, and finish writing to my dad. Every time. When of course this isn’t about him, and it’s damned selfish of me to make it so.[line break][line break]I’m writing you a letter because you wrote me one. You couldn’t have known it, but at that moment I really needed something like that. A few things had happened one after the other and I was exhausted but still fumbling for an explanation. And then you said, 'sometimes bad things happen to good people'. Which is so simple, but I needed to hear it.[line break][line break]There’s a part of me that just wants to tell you how fucking sorry I am that this has happened and that it should never have happened and that it’s unfair and unfathomable.[line break][line break]But I’m sure that you’ve heard that before. I certainly did. Enough times that it stopped meaning anything at all. What no one was able to tell me is how complicated grief is. How it changes over time but remains with you. How, 11 years on, I wouldn’t let go of it, even if I was able.[line break][line break]My relationship with my dad has a beginning and an end. That’s what grief is to me. To have known someone. To be able to hold your entire relationship in your own two hands. For it to become, even as you rail against it, this mystical thing that you can keep in your pocket and carry around with you. I think that’s why I don’t often talk about him. What I remember of him feels so finite and precious, and I don’t want to share it with anyone. What happened to my dad is plainly awful. No silver linings. But then the initial trauma wore off. And now I have this exquisite thing, and maybe you’ll find that you have it too. Or maybe not. We’re different people. I just wanted you to know, from someone in the future, that these things isn’t so simple, and that’s ok.[line break][line break][line break]Nora said that you wanted books and I realised that I already had one. The title is a little on the nose, but it’s really good. A collection of letters about grief, all better than this one thank god.[line break][line break]Anyway, I think you’re wonderful, and if you ever want to rant or whatever, give me a call.[line break][line break]Love, Becky[roman type][line break][line break]";
+		now score is 7;
+		now the description of the letter is "It reads:[line break][line break][italic type]Jane,[line break][line break]I’m so sorry this is coming so late. I got it into my head that I was going to write you a letter, began writing, and then re-writing and starting again and then going back. It was much harder than I expected. I would begin writing to you, and finish writing to my dad. Every time. When of course this isn’t about him, and it’s damned selfish of me to make it so.[line break][line break]I’m writing you a letter because you wrote me one. You couldn’t have known it, but at that moment I really needed something like that. A few things had happened one after the other and I was exhausted but still fumbling for an explanation. And then you said, 'sometimes bad things happen to good people'. Which is so simple, but I needed to hear it.[line break][line break]There’s a part of me that just wants to tell you how fucking sorry I am that this has happened and that it should never have happened and that it’s unfair and unfathomable.[line break][line break]But I’m sure that you’ve heard that before. I certainly did. Enough times that it stopped meaning anything at all. What no one was able to tell me is how complicated grief is. How it changes over time but remains with you. How, 11 years on, I wouldn’t let go of it, even if I was able.[line break][line break]My relationship with my dad has a beginning and an end. That’s what grief is to me. To have known someone. To be able to hold your entire relationship in your own two hands. For it to become, even as you rail against it, this mystical thing that you can keep in your pocket and carry around with you. I think that’s why I don’t often talk about him. What I remember of him feels so finite and precious, and I don’t want to share it with anyone. What happened to my dad is plainly awful. No silver linings. But then the initial trauma wore off. And now I have this exquisite thing, and maybe you’ll find that you have it too. Or maybe not. We’re different people. I just wanted you to know, from someone in the future, that these things isn’t so simple, and that’s ok.[line break][line break]Nora said that you wanted books and I realised that I already had one. The title is a little on the nose, but it’s really good. A collection of letters about grief, all better than this one thank god.[line break][line break]Anyway, I think you’re wonderful, and if you ever want to rant or whatever, give me a call.[line break][line break]Love, Becky[roman type][line break][line break]";
+		stop the action.
+
+			
+			
+
+Every turn:
+	if score is 0:
+		say "You really should finish that letter. It's on the desk in the living room.";
+	if score is 1:
+		say "You really think you're finished? Come on, write it again.";
+	if score is 2:
+		say "[if worth of rested is 0 and player is not in the bed]Your eyelids grow heavy. God you're tired.[end if]";		
+	if score is 3:
+		say "You'd really like to go outside and be done with this. Come on, let's just go. Just grab your keys and go. Go. Please.[line break]";
+	if score is 4:
+		say "That's four drafts. Well done. Do you feel better? Did you really think that writing all this would bring you some kind of relief? Don't you get it? What has been done cannot be undone.";
+	if score is 5:
+		say "[if worth of rested is not 2 and player is not in the bed]Something is not right. You’re having trouble standing up. Better go to bed.[end if]";
+		stop the action;
+	if score is 6:
+		say "You didn't even finish that last draft. Just trailed off. [line break][line break]We're never getting out of here.";
+		stop the action;
+	if score is 7:
+		say "Get out of here. You're done. Get out, escape. Quick, before I change my mind.".
+	[now scorepause is closed.]
+	
+
+
+
+
+		
+
+	Book 3 - Understand
+	
+		Understand "read" as examining.
+		
+		Understand "I/me" as Becky.
+		
+		Understand "who am [something]" or "who is [something]" as examining.
+		
+		Understand "write in [something]" as a mistake ("Try 'write letter'.").
+		
+		Understand "write [something]"  or "finish [something]" as writing.
+		
+		Understand "get out of bed" or "leave bed" or "get up" or "leave the bed" as exiting.
+		
+		Understand the command "sleeping" as something new.
+		
+		Understand "go to sleep" or "sleep"  or "get into bed" or "go to bed" as entering.
+		
+		Understand "living room" as west.
+		
+		Understand "bedroom" as east.
+		
+		Understand "leave" or "escape" or "go outside" or "get out"  or "go" as escaping.
+		
+		Understand "get out" as a mistake ("Do you mean leave?").
+		
+		Understand "write" as a mistake ("Write what?").
+		
+		Understand "look out the [something]" or "look out [something]" as examining.
+		
+
+
+		
+		
+
+Volume 3 - Rooms
+
+	Book 1 - Bedroom
+	
+		The Bedroom is a room. The Bedroom is east of the Living Room. The description is "[if score is 0]Light pours through the open windows.[end if][unless score is 0]It has begun to rain, softly.[end if] You'd really like to leave the apartment.[line break][line break]Your bed sits against the wall."
+		 
+		The bed is in the bedroom. It is a container. It is scenery. It is transparent and enterable. The description of the bed is "The bed is unmade. [if score is 2]It beckons to you.[end if]"
+		
+		The window is a backdrop which is everywhere. The description is "From the window you see a woman crossing the street. She is carrying a bundle of clothes (fresh from the laundromat), which, in a few minutes, will threaten to blow away in the wind. She will hug that bundle to her chest and you, still watching, will be reminded inexplicably of your mother.[line break][line break][italic type]She is massaging your scalp whilst you sit between her legs on the floor. She cups her hand on your forehead and asks you to give her all your weight. When you turn around to see her, she holds your face in her hands and runs her thumbs along your cheekbones. You close your eyes. [roman type]"
+			
+
+	Book 2 - Living Room
+	
+		The Living Room is a room. The description is "The living room is warm, but you'd prefer to be outside." 
+	
+		
+		The desk is in the living room. The description of the desk is "The desk is nothing special. You bought if from Ikea six years ago[if the letter is on the desk]. A letter sits on the desk[end if]." 
+			
+		Jane is a backdrop which is everywhere. The description is "Jane is a close friend."
+		
+		The letter is on the desk. The description of the letter is "All you've written so far is [italic type][line break][line break]Jane,[roman type]"
+		
+		The keys are on the desk.
+			
+
+			
+			
+				
+				
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
